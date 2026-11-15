@@ -32,15 +32,27 @@
     background: linear-gradient(135deg, #1a2332 0%, #0f1419 100%);
     border: 1px solid #2a3a50;
     border-left: 4px solid var(--ssrs-red);
-    padding: 20px 24px;
+    padding: 16px 24px;
     border-radius: 12px;
     margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
   }
+  .logo {
+    height: 70px;
+    width: auto;
+    background: white;
+    border-radius: 8px;
+    padding: 4px;
+  }
+  .header-text { flex: 1; min-width: 240px; }
   header h1 { margin: 0 0 4px 0; font-size: 1.55rem; }
   header p { margin: 0; color: var(--muted); }
   .meta { font-size: 0.85rem; color: var(--muted); margin-top: 8px; }
-  .actions { margin-top: 12px; }
-  button {
+  .actions { margin-top: 12px; display: flex; gap: 10px; flex-wrap: wrap; }
+  button, .nav-link {
     background: var(--ssrs-red);
     color: white;
     border: none;
@@ -48,8 +60,10 @@
     border-radius: 6px;
     cursor: pointer;
     font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
   }
-  button:hover { opacity: 0.9; }
+  button:hover, .nav-link:hover { opacity: 0.9; }
   .summary-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -104,17 +118,23 @@
   @media print {
     body { background: white; color: black; }
     .section-content { display: block !important; }
-    button, .actions { display: none; }
+    button, .actions, .nav-link { display: none; }
     #map { height: 280px; }
   }
 </style>
 </head>
 <body>
 <header>
-  <h1>Omvärldsbrief – Sjöräddningssällskapet</h1>
-  <p>Daglig operativ sammanfattning</p>
-  <div class="meta">2026-11-15 · OSINT-stil · Automatiserad brief</div>
-  <div class="actions"><button onclick="window.print()">Skriv ut / Spara som PDF</button></div>
+  <img class="logo" src="https://mb.cision.com/Public/20399/3331769/9bb9148c5ba286b3_400x400ar.png" alt="Sjöräddningssällskapet logga">
+  <div class="header-text">
+    <h1>Omvärldsbrief – Sjöräddningssällskapet</h1>
+    <p>Daglig operativ sammanfattning</p>
+    <div class="meta">2026-11-15 · OSINT-stil · Automatiserad brief</div>
+    <div class="actions">
+      <button onclick="window.print()">Skriv ut / Spara som PDF</button>
+      <a class="nav-link" href="handelser.html">Händelser senaste dygnet →</a>
+    </div>
+  </div>
 </header>
 
 <div class="summary-cards">
@@ -202,12 +222,10 @@
 </footer>
 
 <script>
-  // Collapsible sections – only first open by default
   document.querySelectorAll('.section').forEach((s, i) => {
     if (i > 0) s.classList.remove('open');
   });
 
-  // Map
   const map = L.map('map').setView([58.5, 16.5], 5.5);
   L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
     attribution: '&copy; OpenStreetMap &copy; CARTO',
@@ -221,7 +239,6 @@
   L.marker([58.3, 11.3]).addTo(map).bindPopup('Skagerrak');
   L.circle([56.5, 16.5], { radius: 80000, color: '#C8102E', fillOpacity: 0.1 }).addTo(map);
 
-  // Fuel chart
   const ctx = document.getElementById('fuelChart').getContext('2d');
   new Chart(ctx, {
     type: 'line',
