@@ -4,14 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Omvärldsbrief – Sjöräddningssällskapet</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <style>
   :root {
+    --bg: #0f1419;
+    --card: #1a2332;
+    --card-hover: #222d3f;
+    --text: #e8eef4;
+    --muted: #8b9bb4;
     --ssrs-red: #C8102E;
-    --ssrs-dark: #1a1a1a;
-    --bg: #f7f7f7;
-    --card: #ffffff;
-    --text: #222;
-    --muted: #666;
+    --green: #22c55e;
+    --yellow: #eab308;
+    --red: #ef4444;
   }
   * { box-sizing: border-box; }
   body {
@@ -20,148 +26,171 @@
     color: var(--text);
     margin: 0;
     padding: 20px;
-    line-height: 1.5;
+    line-height: 1.55;
   }
   header {
-    background: var(--ssrs-red);
-    color: white;
+    background: linear-gradient(135deg, #1a2332 0%, #0f1419 100%);
+    border: 1px solid #2a3a50;
+    border-left: 4px solid var(--ssrs-red);
     padding: 20px 24px;
     border-radius: 12px;
     margin-bottom: 24px;
   }
-  header h1 { margin: 0 0 4px 0; font-size: 1.6rem; }
-  header p { margin: 0; opacity: 0.9; }
-  .meta { font-size: 0.85rem; opacity: 0.85; margin-top: 8px; }
+  header h1 { margin: 0 0 4px 0; font-size: 1.55rem; }
+  header p { margin: 0; color: var(--muted); }
+  .meta { font-size: 0.85rem; color: var(--muted); margin-top: 8px; }
   .actions { margin-top: 12px; }
   button {
-    background: white;
-    color: var(--ssrs-red);
+    background: var(--ssrs-red);
+    color: white;
     border: none;
-    padding: 8px 14px;
+    padding: 8px 16px;
     border-radius: 6px;
     cursor: pointer;
     font-weight: 600;
   }
+  button:hover { opacity: 0.9; }
+  .summary-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid #2a3a50;
+    border-radius: 10px;
+    padding: 16px 18px;
+    cursor: pointer;
+    transition: background 0.15s;
+    position: relative;
+  }
+  .card:hover { background: var(--card-hover); }
+  .card h3 { margin: 0 0 6px 0; font-size: 0.95rem; display: flex; align-items: center; gap: 8px; }
+  .card p { margin: 0; font-size: 0.88rem; color: var(--muted); }
+  .status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .dot-green { background: var(--green); box-shadow: 0 0 6px var(--green); }
+  .dot-yellow { background: var(--yellow); box-shadow: 0 0 6px var(--yellow); }
+  .dot-red { background: var(--red); box-shadow: 0 0 6px var(--red); }
   .section {
     background: var(--card);
+    border: 1px solid #2a3a50;
     border-radius: 12px;
-    margin-bottom: 16px;
+    margin-bottom: 14px;
     overflow: hidden;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
   }
   .section-header {
-    padding: 16px 20px;
-    background: #fafafa;
-    border-bottom: 1px solid #eee;
+    padding: 14px 18px;
+    background: #151c28;
     cursor: pointer;
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-weight: 600;
+    user-select: none;
   }
-  .section-header:hover { background: #f0f0f0; }
-  .section-content { padding: 16px 20px; display: none; }
+  .section-header:hover { background: #1c2535; }
+  .section-content { padding: 16px 18px; display: none; }
   .section.open .section-content { display: block; }
-  .summary-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 12px;
-    margin-bottom: 20px;
+  #map { height: 380px; border-radius: 8px; margin: 12px 0; border: 1px solid #2a3a50; }
+  .chart-container { max-width: 520px; margin: 16px 0; }
+  a { color: #60a5fa; }
+  footer { text-align: center; font-size: 0.78rem; color: var(--muted); margin-top: 32px; }
+  @media print {
+    body { background: white; color: black; }
+    .section-content { display: block !important; }
+    button, .actions { display: none; }
+    #map { height: 280px; }
   }
-  .card {
-    background: var(--card);
-    border-left: 4px solid var(--ssrs-red);
-    padding: 14px 16px;
-    border-radius: 8px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-  }
-  .card h3 { margin: 0 0 6px 0; font-size: 0.95rem; color: var(--ssrs-red); }
-  .card p { margin: 0; font-size: 0.9rem; }
-  .econ { border-left-color: #888; opacity: 0.95; }
-  a { color: var(--ssrs-red); }
-  footer { text-align: center; font-size: 0.8rem; color: var(--muted); margin-top: 30px; }
 </style>
 </head>
 <body>
 <header>
   <h1>Omvärldsbrief – Sjöräddningssällskapet</h1>
   <p>Daglig operativ sammanfattning</p>
-  <div class="meta">Exempel – 2026-11-15 · Designuppdatering</div>
+  <div class="meta">2026-11-15 · OSINT-stil · Automatiserad brief</div>
   <div class="actions"><button onclick="window.print()">Skriv ut / Spara som PDF</button></div>
 </header>
 
 <div class="summary-cards">
-  <div class="card">
-    <h3>Läget i korthet</h3>
-    <p>Stabilt operativt läge. Inga större incidenter senaste dygnet. Väderförhållanden normala för årstiden.</p>
+  <div class="card" onclick="document.getElementById('sec1').classList.toggle('open')">
+    <h3><span class="status-dot dot-green"></span> Läget i korthet</h3>
+    <p>Stabilt operativt läge. Inga större incidenter senaste dygnet.</p>
   </div>
-  <div class="card">
-    <h3>Säkerhet & incidenter</h3>
+  <div class="card" onclick="document.getElementById('sec2').classList.toggle('open')">
+    <h3><span class="status-dot dot-green"></span> Säkerhet & incidenter</h3>
     <p>Inga rapporterade GNSS-störningar eller kabelincidenter i närområdet.</p>
   </div>
-  <div class="card">
-    <h3>Internationellt</h3>
-    <p>NATO-övningar pågår. Inga nya rapporter om undervattensinfrastruktur.</p>
+  <div class="card" onclick="document.getElementById('sec3').classList.toggle('open')">
+    <h3><span class="status-dot dot-yellow"></span> Internationellt</h3>
+    <p>NATO-övningar pågår. Bevakning av undervattensinfrastruktur fortsätter.</p>
+  </div>
+  <div class="card" onclick="document.getElementById('sec6').classList.toggle('open')">
+    <h3><span class="status-dot dot-green"></span> Försörjning</h3>
+    <p>Dieselpris stabilt. Ingen akut påverkan på materielförsörjning.</p>
   </div>
 </div>
 
-<div class="section open">
+<div class="section open" id="sec1">
   <div class="section-header" onclick="this.parentElement.classList.toggle('open')">1. Läget i korthet <span>▼</span></div>
   <div class="section-content">
     <p>Sammanfattning av det operativa läget för frivillig sjöräddning. Fokus på säkerhet, beredskap och omedelbara faktorer.</p>
-    <p>Inga akuta avvikelser. Beredskap normal.</p>
+    <p>Inga akuta avvikelser. Beredskap normal över hela operationsområdet. Väderförhållanden normala för årstiden enligt SMHI.</p>
   </div>
 </div>
 
-<div class="section">
-  <div class="section-header" onclick="this.parentElement.classList.toggle('open')">2. Säkerhet och incidenter <span>▼</span></div>
+<div class="section" id="sec2">
+  <div class="section-header" onclick="this.parentElement.classList.toggle('open')">2. Säkerhet och incidenter i Östersjöregionen / Kattegatt / Skagerrak <span>▼</span></div>
   <div class="section-content">
     <p>Östersjöregionen, Kattegatt och Skagerrak: Ingen rapporterad jamming/spoofing eller kabelincidenter senaste 24–36 timmarna.</p>
     <p>Källor: <a href="https://www.kustbevakningen.se" target="_blank">Kustbevakningen</a>, <a href="https://www.sjofartsverket.se" target="_blank">Sjöfartsverket</a></p>
+    <div id="map"></div>
+    <p><small>Kartan visar ungefärliga operationsområden och relevanta platser. Markeringar är illustrativa.</small></p>
   </div>
 </div>
 
-<div class="section">
+<div class="section" id="sec3">
   <div class="section-header" onclick="this.parentElement.classList.toggle('open')">3. Internationell bevakning <span>▼</span></div>
   <div class="section-content">
-    <p>NATO Baltic Sentry och relaterade övningar fortsätter. Inga nya relevanta händelser för svensk sjöräddning.</p>
+    <p>NATO Baltic Sentry och relaterade övningar fortsätter. Inga nya relevanta händelser för svensk sjöräddning rapporterade senaste dygnet.</p>
+    <p>Fortsatt bevakning av undervattensinfrastruktur i Östersjön.</p>
   </div>
 </div>
 
-<div class="section">
+<div class="section" id="sec4">
   <div class="section-header" onclick="this.parentElement.classList.toggle('open')">4. Cyber och tekniska sårbarheter <span>▼</span></div>
   <div class="section-content">
     <p>Inga nya rapporterade incidenter som påverkar maritim kommunikation eller navigering.</p>
   </div>
 </div>
 
-<div class="section">
+<div class="section" id="sec5">
   <div class="section-header" onclick="this.parentElement.classList.toggle('open')">5. Svenska förhållanden <span>▼</span></div>
   <div class="section-content">
-    <p>Väder enligt SMHI: Normala förhållanden. Politiska och beredskapsrelaterade nyheter utan direkt operativ påverkan idag.</p>
+    <p>Väder enligt SMHI: Normala förhållanden för årstiden. Vind och sjögång inom normala nivåer för operationer.</p>
+    <p>Politiska och beredskapsrelaterade nyheter utan direkt operativ påverkan idag.</p>
     <p>Källa: <a href="https://www.smhi.se" target="_blank">SMHI</a></p>
   </div>
 </div>
 
-<div class="section">
-  <div class="section-header" onclick="this.parentElement.classList.toggle('open')">6. Försörjning, börsvärden och bränslepriser <span>▼</span></div>
+<div class="section" id="sec6">
+  <div class="section-header" onclick="this.parentElement.classList.toggle('open')">6. Försörjning och materiel – börsvärden och bränslepriser <span>▼</span></div>
   <div class="section-content">
-    <div class="summary-cards">
-      <div class="card econ">
-        <h3>Dieselpris</h3>
-        <p>Rikssnitt ca 21,10–21,50 kr/l. Stabilt till svagt fallande senaste dygnet.</p>
-        <p><small>Källa: branschöversikter</small></p>
-      </div>
-      <div class="card econ">
-        <h3>Börsvärden / marknad</h3>
-        <p>Ingen betydande påverkan på materielförsörjning eller ekonomi för verksamheten just nu.</p>
-      </div>
+    <p>Dieselpris (riksnitt): ca 21,10–21,50 kr/l. Stabilt till svagt fallande senaste dygnet.</p>
+    <div class="chart-container">
+      <canvas id="fuelChart"></canvas>
     </div>
+    <p>Börsvärden / marknad: Ingen betydande påverkan på materielförsörjning eller ekonomi för verksamheten just nu.</p>
     <p>Fokus på operativ relevans: bränsleförsörjning stabil.</p>
   </div>
 </div>
 
-<div class="section">
+<div class="section" id="sec7">
   <div class="section-header" onclick="this.parentElement.classList.toggle('open')">7. Slutsats och rekommendationer <span>▼</span></div>
   <div class="section-content">
     <p><strong>Rekommendation:</strong> Fortsätt normal beredskap. Ingen särskild åtgärd krävs utifrån dagens bevakning.</p>
@@ -169,12 +198,55 @@
 </div>
 
 <footer>
-  Sjöräddningssällskapet · Omvärldsbevakning · Automatiserad brief
+  Sjöräddningssällskapet · Omvärldsbevakning · Automatiserad brief · 2026-11-15
 </footer>
 
 <script>
+  // Collapsible sections – only first open by default
   document.querySelectorAll('.section').forEach((s, i) => {
     if (i > 0) s.classList.remove('open');
+  });
+
+  // Map
+  const map = L.map('map').setView([58.5, 16.5], 5.5);
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+    attribution: '&copy; OpenStreetMap &copy; CARTO',
+    subdomains: 'abcd',
+    maxZoom: 19
+  }).addTo(map);
+
+  L.marker([57.7, 11.9]).addTo(map).bindPopup('Göteborg / Kattegatt');
+  L.marker([55.6, 13.0]).addTo(map).bindPopup('Malmö / Öresund');
+  L.marker([59.3, 18.1]).addTo(map).bindPopup('Stockholm / Östersjön');
+  L.marker([58.3, 11.3]).addTo(map).bindPopup('Skagerrak');
+  L.circle([56.5, 16.5], { radius: 80000, color: '#C8102E', fillOpacity: 0.1 }).addTo(map);
+
+  // Fuel chart
+  const ctx = document.getElementById('fuelChart').getContext('2d');
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: ['11 nov', '12 nov', '13 nov', '14 nov', '15 nov'],
+      datasets: [{
+        label: 'Dieselpris (kr/l, rikssnitt)',
+        data: [21.55, 21.40, 21.35, 21.28, 21.22],
+        borderColor: '#C8102E',
+        backgroundColor: 'rgba(200, 16, 46, 0.15)',
+        tension: 0.3,
+        fill: true,
+        pointBackgroundColor: '#C8102E'
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { labels: { color: '#e8eef4' } }
+      },
+      scales: {
+        x: { ticks: { color: '#8b9bb4' }, grid: { color: '#2a3a50' } },
+        y: { ticks: { color: '#8b9bb4' }, grid: { color: '#2a3a50' }, suggestedMin: 20.5, suggestedMax: 22.5 }
+      }
+    }
   });
 </script>
 </body>
