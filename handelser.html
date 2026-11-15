@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Händelser senaste dygnet – Sjöräddningssällskapet</title>
+<style>
+  :root {
+    --bg: #0f1419;
+    --card: #1a2332;
+    --text: #e8eef4;
+    --muted: #8b9bb4;
+    --ssrs-red: #C8102E;
+    --green: #22c55e;
+    --yellow: #eab308;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    margin: 0;
+    padding: 20px;
+    line-height: 1.5;
+  }
+  header {
+    background: linear-gradient(135deg, #1a2332 0%, #0f1419 100%);
+    border: 1px solid #2a3a50;
+    border-left: 4px solid var(--ssrs-red);
+    padding: 16px 24px;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .logo {
+    height: 60px;
+    width: auto;
+    background: white;
+    border-radius: 8px;
+    padding: 4px;
+  }
+  .header-text { flex: 1; }
+  header h1 { margin: 0 0 4px 0; font-size: 1.4rem; }
+  header p { margin: 0; color: var(--muted); font-size: 0.9rem; }
+  .nav { margin-top: 10px; }
+  .nav a {
+    color: white;
+    background: var(--ssrs-red);
+    padding: 6px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+  .table-wrap {
+    background: var(--card);
+    border: 1px solid #2a3a50;
+    border-radius: 12px;
+    overflow-x: auto;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+  }
+  th {
+    background: #151c28;
+    text-align: left;
+    padding: 12px 14px;
+    font-weight: 600;
+    border-bottom: 1px solid #2a3a50;
+    white-space: nowrap;
+  }
+  td {
+    padding: 12px 14px;
+    border-bottom: 1px solid #2a3a50;
+    vertical-align: top;
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: #222d3f; }
+  .badge {
+    display: inline-block;
+    background: var(--ssrs-red);
+    color: white;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-right: 6px;
+  }
+  .badge-green {
+    background: #1e3a2f;
+    color: var(--green);
+    border: 1px solid var(--green);
+  }
+  .id { font-size: 0.75rem; color: var(--muted); margin-top: 4px; }
+  .time-ago { font-size: 0.75rem; color: var(--muted); }
+  footer { text-align: center; font-size: 0.78rem; color: var(--muted); margin-top: 32px; }
+</style>
+</head>
+<body>
+<header>
+  <img class="logo" src="https://mb.cision.com/Public/20399/3331769/9bb9148c5ba286b3_400x400ar.png" alt="Sjöräddningssällskapet logga">
+  <div class="header-text">
+    <h1>Händelser senaste dygnet</h1>
+    <p>Sjöräddningssällskapet · Operativa händelser</p>
+    <div class="nav"><a href="index.html">← Tillbaka till omvärldsbrief</a></div>
+  </div>
+</header>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+  <th>Händelse</th>
+  <th>Källa</th>
+  <th>Station/Enhet</th>
+  <th>Skapad</th>
+  <th>Uppdaterad</th>
+  <th>Avslutad</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><span class="badge">Larm</span><span class="badge badge-green">Avslutat</span><br>Förebyggande uppdrag, Motorproblem<div class="id">4:17179421:1</div></td>
+  <td>SOS Alarm</td>
+  <td>SSRS Stockholm</td>
+  <td>2026-11-15 13:26:34<br><span class="time-ago">för 2 timmar sedan</span></td>
+  <td>2026-11-15 13:33:08<br><span class="time-ago">för 1 timme sedan</span></td>
+  <td>2026-11-15 13:32:15<br><span class="time-ago">för 2 timmar sedan</span></td>
+</tr>
+<tr>
+  <td><span class="badge">Larm</span><span class="badge badge-green">Avslutat</span><br>Förebyggande uppdrag, Motorproblem<div class="id">4:17179203:1</div></td>
+  <td>SOS Alarm</td>
+  <td>SSRS Arkösund</td>
+  <td>2026-11-15 10:20:16<br><span class="time-ago">för 5 timmar sedan</span></td>
+  <td>2026-11-15 10:30:37<br><span class="time-ago">för 5 timmar sedan</span></td>
+  <td>2026-11-15 10:30:05<br><span class="time-ago">för 5 timmar sedan</span></td>
+</tr>
+<tr>
+  <td><span class="badge">Larm</span><br>Annan svensk räddningstjänst · Kommunal räddningstjänst<div class="id">101:97549:2</div></td>
+  <td>JRCC</td>
+  <td>Käringön SSRS</td>
+  <td>2026-11-14 15:02:45<br><span class="time-ago">för en dag sedan</span></td>
+  <td>2026-11-14 15:02:46<br><span class="time-ago">för en dag sedan</span></td>
+  <td>–</td>
+</tr>
+<tr>
+  <td><span class="badge">Larm</span><span class="badge badge-green">Avslutat</span><br>Assistans till Räddn.Tjänst, Båt Olycka<div class="id">19:12962005:7</div></td>
+  <td>SOS Alarm</td>
+  <td>Maersk Mc-Kinney Möller, Georg Lysell</td>
+  <td>2026-11-14 15:01:54<br><span class="time-ago">för en dag sedan</span></td>
+  <td>2026-11-14 16:40:38<br><span class="time-ago">för en dag sedan</span></td>
+  <td>2026-11-14 16:40:07<br><span class="time-ago">för en dag sedan</span></td>
+</tr>
+<tr>
+  <td><span class="badge">Larm</span><span class="badge badge-green">Avslutat</span><br>Förebyggande uppdrag, Motorproblem<div class="id">4:17177722:1</div></td>
+  <td>SOS Alarm</td>
+  <td>SSRS Västerås</td>
+  <td>2026-11-14 14:09:55<br><span class="time-ago">för en dag sedan</span></td>
+  <td>2026-11-14 14:20:08<br><span class="time-ago">för en dag sedan</span></td>
+  <td>2026-11-14 14:19:41<br><span class="time-ago">för en dag sedan</span></td>
+</tr>
+<tr>
+  <td><span class="badge">Larm</span><span class="badge badge-green">Avslutat</span><br>Förebyggande uppdrag, Motorproblem<div class="id">4:17177652:1</div></td>
+  <td>SOS Alarm</td>
+  <td>SSRS Arkösund</td>
+  <td>2026-11-14 13:33:56<br><span class="time-ago">för en dag sedan</span></td>
+  <td>2026-11-14 13:41:17<br><span class="time-ago">för en dag sedan</span></td>
+  <td>2026-11-14 13:40:52<br><span class="time-ago">för en dag sedan</span></td>
+</tr>
+<tr>
+  <td><span class="badge">Larm</span><br>Annan svensk räddningstjänst<div class="id">–</div></td>
+  <td>JRCC</td>
+  <td>Skärhamn SSRS</td>
+  <td>2026-11-14 12:50:39<br><span class="time-ago">för en dag sedan</span></td>
+  <td>2026-11-15 13:07:38<br><span class="time-ago">för en timme sedan</span></td>
+  <td>2026-11-15 13:07:37<br><span class="time-ago">för en timme sedan</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<p style="margin-top: 16px; font-size: 0.85rem; color: var(--muted);">Exempeldata från operativ översikt 2026-11-15. Tider är ungefärliga.</p>
+
+<footer>
+  Sjöräddningssällskapet · Omvärldsbevakning · Händelser
+</footer>
+</body>
+</html>
