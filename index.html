@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Omvärldsbrief – Sjöräddningssällskapet</title>
+<style>
+  :root {
+    --ssrs-red: #C8102E;
+    --ssrs-dark: #1a1a1a;
+    --bg: #f7f7f7;
+    --card: #ffffff;
+    --text: #222;
+    --muted: #666;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    margin: 0;
+    padding: 20px;
+    line-height: 1.5;
+  }
+  header {
+    background: var(--ssrs-red);
+    color: white;
+    padding: 20px 24px;
+    border-radius: 12px;
+    margin-bottom: 24px;
+  }
+  header h1 { margin: 0 0 4px 0; font-size: 1.6rem; }
+  header p { margin: 0; opacity: 0.9; }
+  .meta { font-size: 0.85rem; opacity: 0.85; margin-top: 8px; }
+  .actions { margin-top: 12px; }
+  button {
+    background: white;
+    color: var(--ssrs-red);
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+  }
+  .section {
+    background: var(--card);
+    border-radius: 12px;
+    margin-bottom: 16px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+  .section-header {
+    padding: 16px 20px;
+    background: #fafafa;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+  }
+  .section-header:hover { background: #f0f0f0; }
+  .section-content { padding: 16px 20px; display: none; }
+  .section.open .section-content { display: block; }
+  .summary-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .card {
+    background: var(--card);
+    border-left: 4px solid var(--ssrs-red);
+    padding: 14px 16px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  }
+  .card h3 { margin: 0 0 6px 0; font-size: 0.95rem; color: var(--ssrs-red); }
+  .card p { margin: 0; font-size: 0.9rem; }
+  .econ { border-left-color: #888; opacity: 0.95; }
+  a { color: var(--ssrs-red); }
+  footer { text-align: center; font-size: 0.8rem; color: var(--muted); margin-top: 30px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Omvärldsbrief – Sjöräddningssällskapet</h1>
+  <p>Daglig operativ sammanfattning</p>
+  <div class="meta">Exempel – 2026-11-15 · Designuppdatering</div>
+  <div class="actions"><button onclick="window.print()">Skriv ut / Spara som PDF</button></div>
+</header>
+
+<div class="summary-cards">
+  <div class="card">
+    <h3>Läget i korthet</h3>
+    <p>Stabilt operativt läge. Inga större incidenter senaste dygnet. Väderförhållanden normala för årstiden.</p>
+  </div>
+  <div class="card">
+    <h3>Säkerhet & incidenter</h3>
+    <p>Inga rapporterade GNSS-störningar eller kabelincidenter i närområdet.</p>
+  </div>
+  <div class="card">
+    <h3>Internationellt</h3>
+    <p>NATO-övningar pågår. Inga nya rapporter om undervattensinfrastruktur.</p>
+  </div>
+</div>
+
+<div class="section open">
+  <div class="section-header" onclick="this.parentElement.classList.toggle('open')">1. Läget i korthet <span>▼</span></div>
+  <div class="section-content">
+    <p>Sammanfattning av det operativa läget för frivillig sjöräddning. Fokus på säkerhet, beredskap och omedelbara faktorer.</p>
+    <p>Inga akuta avvikelser. Beredskap normal.</p>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header" onclick="this.parentElement.classList.toggle('open')">2. Säkerhet och incidenter <span>▼</span></div>
+  <div class="section-content">
+    <p>Östersjöregionen, Kattegatt och Skagerrak: Ingen rapporterad jamming/spoofing eller kabelincidenter senaste 24–36 timmarna.</p>
+    <p>Källor: <a href="https://www.kustbevakningen.se" target="_blank">Kustbevakningen</a>, <a href="https://www.sjofartsverket.se" target="_blank">Sjöfartsverket</a></p>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header" onclick="this.parentElement.classList.toggle('open')">3. Internationell bevakning <span>▼</span></div>
+  <div class="section-content">
+    <p>NATO Baltic Sentry och relaterade övningar fortsätter. Inga nya relevanta händelser för svensk sjöräddning.</p>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header" onclick="this.parentElement.classList.toggle('open')">4. Cyber och tekniska sårbarheter <span>▼</span></div>
+  <div class="section-content">
+    <p>Inga nya rapporterade incidenter som påverkar maritim kommunikation eller navigering.</p>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header" onclick="this.parentElement.classList.toggle('open')">5. Svenska förhållanden <span>▼</span></div>
+  <div class="section-content">
+    <p>Väder enligt SMHI: Normala förhållanden. Politiska och beredskapsrelaterade nyheter utan direkt operativ påverkan idag.</p>
+    <p>Källa: <a href="https://www.smhi.se" target="_blank">SMHI</a></p>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header" onclick="this.parentElement.classList.toggle('open')">6. Försörjning, börsvärden och bränslepriser <span>▼</span></div>
+  <div class="section-content">
+    <div class="summary-cards">
+      <div class="card econ">
+        <h3>Dieselpris</h3>
+        <p>Rikssnitt ca 21,10–21,50 kr/l. Stabilt till svagt fallande senaste dygnet.</p>
+        <p><small>Källa: branschöversikter</small></p>
+      </div>
+      <div class="card econ">
+        <h3>Börsvärden / marknad</h3>
+        <p>Ingen betydande påverkan på materielförsörjning eller ekonomi för verksamheten just nu.</p>
+      </div>
+    </div>
+    <p>Fokus på operativ relevans: bränsleförsörjning stabil.</p>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header" onclick="this.parentElement.classList.toggle('open')">7. Slutsats och rekommendationer <span>▼</span></div>
+  <div class="section-content">
+    <p><strong>Rekommendation:</strong> Fortsätt normal beredskap. Ingen särskild åtgärd krävs utifrån dagens bevakning.</p>
+  </div>
+</div>
+
+<footer>
+  Sjöräddningssällskapet · Omvärldsbevakning · Automatiserad brief
+</footer>
+
+<script>
+  document.querySelectorAll('.section').forEach((s, i) => {
+    if (i > 0) s.classList.remove('open');
+  });
+</script>
+</body>
+</html>
