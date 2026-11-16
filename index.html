@@ -131,10 +131,9 @@
   <div class="header-text">
     <h1>Omvärldsbrief – Sjöräddningssällskapet</h1>
     <p>Daglig operativ sammanfattning</p>
-    <div class="meta">2026-11-15 · OSINT-stil · Automatiserad brief</div>
+    <div class="meta">2026-11-16 · OSINT-stil · Faktabaserad brief</div>
     <div class="actions">
       <button type="button" onclick="doPrint()">Skriv ut / Spara som PDF</button>
-      <a class="nav-link" href="handelser.html">Händelser senaste dygnet →</a>
     </div>
   </div>
 </header>
@@ -142,85 +141,106 @@
 <div class="summary-cards">
   <div class="card" onclick="document.getElementById('sec1').classList.toggle('open')">
     <h3><span class="status-dot dot-green"></span> Läget i korthet</h3>
-    <p>Stabilt operativt läge. Inga större incidenter senaste dygnet.</p>
+    <p>Normalt operativt läge. Gula SMHI-varningar för kuling i Östersjön. Ingen akut incident.</p>
   </div>
   <div class="card" onclick="document.getElementById('sec2').classList.toggle('open')">
-    <h3><span class="status-dot dot-green"></span> Säkerhet & incidenter</h3>
-    <p>Inga rapporterade GNSS-störningar eller kabelincidenter i närområdet.</p>
+    <h3><span class="status-dot dot-yellow"></span> Säkerhet & incidenter</h3>
+    <p>Ökad uppmärksamhet kring skuggflotta och miljörisker. Inga nya kabelincidenter.</p>
   </div>
   <div class="card" onclick="document.getElementById('sec3').classList.toggle('open')">
     <h3><span class="status-dot dot-yellow"></span> Internationellt</h3>
-    <p>NATO-övningar pågår. Bevakning av undervattensinfrastruktur fortsätter.</p>
+    <p>Ukrainsk drönarattack mot ryskt krigsfartyg i Finska viken nyligen. Fortsatt bevakning.</p>
   </div>
-  <div class="card" onclick="document.getElementById('sec6').classList.toggle('open')">
-    <h3><span class="status-dot dot-green"></span> Försörjning</h3>
-    <p>Dieselpris stabilt. Ingen akut påverkan på materielförsörjning.</p>
+  <div class="card" onclick="document.getElementById('sec5').classList.toggle('open')">
+    <h3><span class="status-dot dot-yellow"></span> Svenska förhållanden</h3>
+    <p>Regn och kulingvarningar. Kallare luft på väg. Beredskap för försämrad sjögång.</p>
   </div>
 </div>
 
 <div class="section open" id="sec1">
   <div class="section-header" onclick="this.parentElement.classList.toggle('open')">1. Läget i korthet <span>▼</span></div>
   <div class="section-content">
-    <p>Sammanfattning av det operativa läget för frivillig sjöräddning. Fokus på säkerhet, beredskap och omedelbara faktorer.</p>
-    <p>Inga akuta avvikelser. Beredskap normal över hela operationsområdet. Väderförhållanden normala för årstiden enligt SMHI.</p>
+    <p>Operativ sammanfattning för frivillig sjöräddning 16 november 2026.</p>
+    <p>Normalt beredskapsläge över operationsområdet. Inga pågående större räddningsinsatser rapporterade från Sjöräddningssällskapet eller JRCC under senaste dygnet. Tidigare insatser (Trelleborg 12–13 nov, Skärhamn 14 nov) avslutade.</p>
+    <p>SMHI har utfärdat gula varningar för kuling (14–17 m/s) i flera delar av Östersjön samt risk för plötslig ishalka längs Norrlandskusten. Regn över södra Sverige, kallare luft på väg norrifrån. Beredskap för försämrad sjögång rekommenderas.</p>
+    <p>Källor: SMHI, Kustbevakningen, öppna nyhetskällor (källkritik tillämpad).</p>
   </div>
 </div>
 
 <div class="section" id="sec2">
   <div class="section-header" onclick="this.parentElement.classList.toggle('open'); setTimeout(function(){ if(window.map) map.invalidateSize(); }, 100);">2. Säkerhet och incidenter i Östersjöregionen / Kattegatt / Skagerrak <span>▼</span></div>
   <div class="section-content">
-    <p>Östersjöregionen, Kattegatt och Skagerrak: Ingen rapporterad jamming/spoofing eller kabelincidenter senaste 24–36 timmarna.</p>
-    <p>Källor: <a href="https://www.kustbevakningen.se" target="_blank">Kustbevakningen</a>, <a href="https://www.sjofartsverket.se" target="_blank">Sjöfartsverket</a></p>
+    <p><strong>Status: Uppmärksamhet (gul)</strong></p>
+    <p>Inga rapporterade GNSS-störningar, kabelbrott eller större maritima incidenter i svenska närområdet under senaste 24–36 timmarna.</p>
+    <p>Kustbevakningen varnar (15 nov) för ökad dieseltrafik på Östersjön till följd av avtal mellan USA och Ryssland. Generaldirektör Lena Lindgren Schelin beskriver äldre fartyg i skuggflottan som ”tickande miljöbomber” med ökad risk för utsläpp. Myndigheten förbereder fortsatta kontroller och samverkan.</p>
+    <p>Fortsatt bevakning av undervattensinfrastruktur pågår via finsklett samarbete där Kustbevakningen är svensk kontaktpunkt.</p>
+    <p>Källor: Kustbevakningen, Dagens Industri (15 nov), Regeringen.se (tidigare uppdrag).</p>
     <div id="map"></div>
-    <p><small>Kartan visar ungefärliga operationsområden och relevanta platser. Markeringar är illustrativa.</small></p>
+    <p><small>Kartan visar ungefärliga områden med SMHI-kulingvarningar och relevanta platser. Markeringar är illustrativa.</small></p>
   </div>
 </div>
 
 <div class="section" id="sec3">
   <div class="section-header" onclick="this.parentElement.classList.toggle('open')">3. Internationell bevakning <span>▼</span></div>
   <div class="section-content">
-    <p>NATO Baltic Sentry och relaterade övningar fortsätter. Inga nya relevanta händelser för svensk sjöräddning rapporterade senaste dygnet.</p>
-    <p>Fortsatt bevakning av undervattensinfrastruktur i Östersjön.</p>
+    <p><strong>Status: Uppmärksamhet (gul)</strong></p>
+    <p>Ukrainska säkerhetstjänsten SBU rapporterade drönarattack mot ryskt missilkorvett (Byan-M-klass, Naro-Fominsk) i Finska viken natt till 11 november, ca 40 km från finsk kust. Finlands försvarsmakt bekräftade observation. Fartyget återvände till Sankt Petersburg. Säkerhetsläget bedöms stabilt av Finland, men händelsen markerar ökad risk för spillover i Östersjön.</p>
+    <p>NATO-relaterad bevakning av undervattensinfrastruktur (Baltic Sentry / Task Force X) fortsätter. Inga nya operativa påverkan för svensk frivillig sjöräddning senaste dygnet.</p>
+    <p>Källor: Reuters, Yle, Nettavisen, Finlands försvarsmakt (via medier, 11–14 nov). Källkritik: obekräftade skadeuppgifter.</p>
   </div>
 </div>
 
 <div class="section" id="sec4">
   <div class="section-header" onclick="this.parentElement.classList.toggle('open')">4. Cyber och tekniska sårbarheter <span>▼</span></div>
   <div class="section-content">
-    <p>Inga nya rapporterade incidenter som påverkar maritim kommunikation eller navigering.</p>
+    <p><strong>Status: Uppmärksamhet (gul)</strong></p>
+    <p>Regeringen och Nationellt cybersäkerhetscenter (NCSC) utfärdade förstärkt uppmaning (10–11 nov) efter cyberangrepp mot kyl- och fryssystem i matbutiker (ca 30 i Sverige, fler i Europa). Minister Carl-Oskar Bohlin varnade för risk för fler incidenter kommande månader. Äldre system med svaga lösenord drabbas.</p>
+    <p>Ingen rapporterad direkt påverkan på maritim kommunikation, AIS eller navigeringssystem senaste dygnet. Rekommendation: säkerställ patchning och nätverkssegmentering av tekniska system på stationer och båtar.</p>
+    <p>Källor: Regeringen.se, SVT, NCSC/FRA (10–11 nov).</p>
   </div>
 </div>
 
 <div class="section" id="sec5">
-  <div class="section-header" onclick="this.parentElement.classList.toggle('open')">5. Svenska förhållanden <span>▼</span></div>
+  <div class="section-header" onclick="this.parentElement.classList.toggle('open')">5. Svenska förhållanden (väder från SMHI m.m.) <span>▼</span></div>
   <div class="section-content">
-    <p>Väder enligt SMHI: Normala förhållanden för årstiden. Vind och sjögång inom normala nivåer för operationer.</p>
-    <p>Politiska och beredskapsrelaterade nyheter utan direkt operativ påverkan idag.</p>
-    <p>Källa: <a href="https://www.smhi.se" target="_blank">SMHI</a></p>
+    <p><strong>Status: Uppmärksamhet (gul) – väder</strong></p>
+    <p>SMHI 16 november: Regn över södra Sverige. Kallare luft strömmar ner norrifrån. I Värmland/Dalarna kan regn övergå i snö. Snöbyar längs Norrlandskusten. Temperaturer i Stockholm ca 4–6°C, nederbörd 6–11 mm möjlig, vind sydlig 3–8 m/s med byar.</p>
+    <p>Gula varningar: Kuling 14–17 m/s i Bottenviken, Finska viken, Norra/Östersjön (mellersta/södra), Rigabukten m.fl. Plötslig ishalka längs Västerbottens- och Västernorrlandskusten.</p>
+    <p>Operativ relevans: Försämrad sjögång i varningsområden. Normal beredskap räcker, men ökad uppmärksamhet vid utryckning. Inga andra samhällsfaktorer med direkt påverkan.</p>
+    <p>Källa: <a href="https://www.smhi.se/vader/prognoser-och-varningar/varningar-och-meddelanden" target="_blank">SMHI varningar</a> (16 nov).</p>
   </div>
 </div>
 
 <div class="section" id="sec6">
   <div class="section-header" onclick="this.parentElement.classList.toggle('open')">6. Försörjning och materiel – börsvärden och bränslepriser <span>▼</span></div>
   <div class="section-content">
-    <p>Dieselpris (riksnitt): ca 21,10–21,50 kr/l. Stabilt till svagt fallande senaste dygnet.</p>
+    <p><strong>Status: OK (grön)</strong></p>
+    <p>Dieselpris (listpris/riksnitt): ca 21,59 kr/l (uppdaterat 12–16 nov). Stabilt senaste dagarna, ned från högre nivåer tidigare i månaden. Ingen akut påverkan på bränsleförsörjning för räddningsbåtar.</p>
     <div class="chart-container">
       <canvas id="fuelChart"></canvas>
     </div>
-    <p>Börsvärden / marknad: Ingen betydande påverkan på materielförsörjning eller ekonomi för verksamheten just nu.</p>
-    <p>Fokus på operativ relevans: bränsleförsörjning stabil.</p>
+    <p>Stockholmsbörsen (OMXS30): Stängning 13 nov ca 3 357 (marginell förändring). Måndag 16 nov öppnar normalt. Ingen betydande marknadsrörelse med operativ påverkan på materiel eller ekonomi för Sjöräddningssällskapet.</p>
+    <p>Källor: dieselpriset.se, bensinpriserna.se, börsdata (13 nov).</p>
   </div>
 </div>
 
 <div class="section" id="sec7">
-  <div class="section-header" onclick="this.parentElement.classList.toggle('open')">7. Slutsats och rekommendationer <span>▼</span></div>
+  <div class="section-header" onclick="this.parentElement.classList.toggle('open')">7. Kort slutsats + rekommenderade åtgärder <span>▼</span></div>
   <div class="section-content">
-    <p><strong>Rekommendation:</strong> Fortsätt normal beredskap. Ingen särskild åtgärd krävs utifrån dagens bevakning.</p>
+    <p><strong>Slutsats:</strong> Stabilt operativt läge för frivillig sjöräddning. Huvudsakliga faktorer är väderrelaterade (kulingvarningar) och ökad miljörisk från skuggflotta. Inga akuta säkerhetsincidenter i närområdet.</p>
+    <p><strong>Rekommenderade åtgärder:</strong></p>
+    <ul>
+      <li>Fortsätt normal beredskap. Öka uppmärksamhet på sjögång i områden med SMHI-kulingvarningar.</li>
+      <li>Säkerställ att stationer har uppdaterade väderuppgifter och kan anpassa utryckning.</li>
+      <li>Fortsätt rutinmässig cybersäkerhet (patchning, lösenord) på tekniska system.</li>
+      <li>Bevaka Kustbevakningens information om miljörisker från ökad tanktrafik.</li>
+    </ul>
+    <p>Ingen särskild eskalering krävs idag.</p>
   </div>
 </div>
 
 <footer>
-  Sjöräddningssällskapet · Omvärldsbevakning · Automatiserad brief · 2026-11-15
+  Sjöräddningssällskapet · Omvärldsbevakning · 2026-11-16 · Baserad på öppna primärkällor med källkritik
 </footer>
 
 <script>
@@ -236,17 +256,19 @@
     if (i > 0) s.classList.remove('open');
   });
 
-  window.map = L.map('map').setView([58.5, 16.5], 5.5);
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-    maxZoom: 19
+  window.map = L.map('map').setView([58.5, 17.5], 5.2);
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+    subdomains: 'abcd',
+    maxZoom: 20
   }).addTo(window.map);
 
   L.marker([57.7, 11.9]).addTo(window.map).bindPopup('Göteborg / Kattegatt');
   L.marker([55.6, 13.0]).addTo(window.map).bindPopup('Malmö / Öresund');
   L.marker([59.3, 18.1]).addTo(window.map).bindPopup('Stockholm / Östersjön');
   L.marker([58.3, 11.3]).addTo(window.map).bindPopup('Skagerrak');
-  L.circle([56.5, 16.5], { radius: 80000, color: '#C8102E', fillOpacity: 0.15 }).addTo(window.map);
+  L.marker([60.1, 24.9]).addTo(window.map).bindPopup('Finska viken (ökad bevakning)');
+  L.circle([56.8, 18.5], { radius: 120000, color: '#eab308', fillColor: '#eab308', fillOpacity: 0.12 }).addTo(window.map).bindPopup('Område med kulingvarningar');
 
   setTimeout(function(){ if(window.map) window.map.invalidateSize(); }, 200);
 
@@ -254,10 +276,10 @@
   new Chart(ctx, {
     type: 'line',
     data: {
-      labels: ['11 nov', '12 nov', '13 nov', '14 nov', '15 nov'],
+      labels: ['12 nov', '13 nov', '14 nov', '15 nov', '16 nov'],
       datasets: [{
-        label: 'Dieselpris (kr/l, rikssnitt)',
-        data: [21.55, 21.40, 21.35, 21.28, 21.22],
+        label: 'Dieselpris (kr/l, listpris)',
+        data: [21.09, 21.59, 21.59, 21.59, 21.59],
         borderColor: '#C8102E',
         backgroundColor: 'rgba(200, 16, 46, 0.15)',
         tension: 0.3,
