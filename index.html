@@ -131,7 +131,7 @@
   <div class="header-text">
     <h1>Omvärldsbrief – Sjöräddningssällskapet</h1>
     <p>Daglig operativ sammanfattning</p>
-    <div class="meta">2026-11-18 · OSINT-stil · Faktabaserad brief</div>
+    <div class="meta">2026-11-19 · OSINT-stil · Faktabaserad brief</div>
     <div class="actions">
       <button type="button" onclick="doPrint()">Skriv ut / Spara som PDF</button>
     </div>
@@ -141,30 +141,30 @@
 <div class="summary-cards">
   <div class="card" onclick="document.getElementById('sec1').classList.toggle('open')">
     <h3><span class="status-dot dot-green"></span> Läget i korthet</h3>
-    <p>Normalt operativt läge. Inga akuta insatser senaste 24–36 h. GNSS-störningar och militära övningar bevakas.</p>
+    <p>Normalt operativt läge. Inga akuta insatser senaste 24–36 h. Vinterväder och militära övningar bevakas.</p>
   </div>
   <div class="card" onclick="document.getElementById('sec2').classList.toggle('open')">
     <h3><span class="status-dot dot-yellow"></span> Säkerhet & incidenter</h3>
-    <p>Pågående GNSS/AIS-störningar i Östersjön. Danska skjutövningar i Kattegatt. Inga nya kabelincidenter rapporterade idag.</p>
+    <p>Danska skjutövningar i Kattegatt (Gniben och Jægerspris). Inga nya större incidenter. Hybridhot kvarstår.</p>
   </div>
   <div class="card" onclick="document.getElementById('sec3').classList.toggle('open')">
     <h3><span class="status-dot dot-yellow"></span> Internationellt</h3>
-    <p>Fortsatt hybridhotbild. Tidigare drönarattacker i Finska viken. NATO-närvaro förstärkt.</p>
+    <p>EU-stöd till sjökabelreparation. Ökad cyberhotbild. Saildrone-deployering för maritim övervakning.</p>
   </div>
   <div class="card" onclick="document.getElementById('sec5').classList.toggle('open')">
-    <h3><span class="status-dot dot-green"></span> Svenska förhållanden</h3>
-    <p>Molnigt, ca 1–3°C i söder, måttliga vindar. Inga aktuella extrema sjövarningar.</p>
+    <h3><span class="status-dot dot-yellow"></span> Svenska förhållanden</h3>
+    <p>Vintern slår till. Gul varning ishalka norra kusten. Lokala snöbyar, kallare luft.</p>
   </div>
 </div>
 
 <div class="section open" id="sec1">
   <div class="section-header" onclick="this.parentElement.classList.toggle('open')">1. Läget i korthet <span>▼</span></div>
   <div class="section-content">
-    <p>Operativ sammanfattning för frivillig sjöräddning 18 november 2026.</p>
-    <p>Normalt beredskapsläge. Inga pågående större räddningsinsatser rapporterade från Sjöräddningssällskapet, JRCC eller Kustbevakningen under de senaste 24–36 timmarna. Tidigare insatser (t.ex. utanför Trelleborg 12 nov) är avslutade. Beredskap oförändrad.</p>
-    <p>Väder: Molnigt till mulet, temperaturer runt 0–3°C i södra och mellersta Sverige. Vindar måttliga (ca 5–11 m/s i Kattegatt/Östersjön). Lätt nederbörd möjlig. Inga aktuella gula eller högre varningar för kuling eller extrema förhållanden i svenska farvatten.</p>
-    <p>Säkerhet: Pågående NAVTEX-varning om GNSS-, AIS-, radar- och DGPS-störningar i stora delar av Östersjön (Baltic Sea Nav Warn 030/26). Danska skjutövningar pågår i Kattegatt (Jægerspris-området) till 23 nov med tillfälligt förbjudna zoner.</p>
-    <p>Källor: SMHI, Sjöfartsverket NAVTEX, öppna myndighets- och nyhetskällor med källkritik. Prioritet på primära myndighetskällor.</p>
+    <p>Operativ sammanfattning för frivillig sjöräddning 19 november 2026.</p>
+    <p>Normalt beredskapsläge. Inga pågående större räddningsinsatser rapporterade från Sjöräddningssällskapet, JRCC eller Kustbevakningen under de senaste 24–36 timmarna. Beredskap oförändrad.</p>
+    <p>Väder: Kallare luft på väg söderut. Temperaturer runt 0°C eller strax under i stora delar, lokala snöbyar möjliga i öst och söder. Gul varning för plötslig ishalka längs Västerbottens och Norrbottens kust under morgonen. Vindar måttliga till friska i söder (upp till ca 15–17 m/s i Öresund/Kattegatt-området). Inga extrema sjövarningar.</p>
+    <p>Säkerhet: Danska skjutövningar pågår i Kattegatt (Gniben-området och Jægerspris) med tillfälliga farozoner. Inga nya rapporterade GNSS-störningar eller kabelincidenter de senaste dygnen, men hybridhotbilden kvarstår.</p>
+    <p>Källor: SMHI, väderprognoser, NAVTEX/skjutvarningar, öppna myndighets- och nyhetskällor med källkritik. Prioritet på primära myndighetskällor. Fokus senaste 24–36 h.</p>
   </div>
 </div>
 
@@ -172,13 +172,12 @@
   <div class="section-header" onclick="this.parentElement.classList.toggle('open'); setTimeout(function(){ if(window.map) map.invalidateSize(); }, 100);">2. Säkerhet och incidenter i Östersjöregionen / Kattegatt / Skagerrak <span>▼</span></div>
   <div class="section-content">
     <p><strong>Status: Uppmärksamhet (gul)</strong></p>
-    <p>Baltic Sea Navigational Warning 030/26 är fortsatt aktiv: Störningar observerade på GNSS, AIS, radar och DGPS i södra, sydöstra, mellersta och norra Östersjön, Finska viken, Rigabukten och Ålandshav. Mariners uppmanas till försiktighet och beredskap för navigationspåverkan. Källa: Sjöfartsverket.</p>
-    <p>Danska skjutövningar (firing practice) i EK R 18 Jægerspris, Kattegatt, pågår 17–23 november 2026 med tillfälliga förbjudna områden för navigation, ankring och fiske under angivna tider. PAN PAN-varningar aktiva. Position cirka 55°52'N 011°57'E.</p>
-    <p>Polska militärövningar i södra Östersjön 16–21 november med stängda zoner för sjöfart och fiske under vissa tider. Ingen direkt påverkan på svenska farvatten rapporterad.</p>
-    <p>Inga nya rapporterade kabelbrott eller större maritima incidenter i svenska närområdet de senaste 24–36 timmarna. Tidigare incidenter (bl.a. Latvia–Gotland) under utredning; vissa bedömda som olyckor av svenska åklagare. Kustbevakningen har tidigare varnat för ökad dieseltransport och miljörisker från äldre fartyg.</p>
-    <p>Källor: Sjöfartsverket NAVTEX, SeaLagom, danska och polska varningar (17–18 nov).</p>
+    <p>Danska skjutövningar (firing practice) pågår i Kattegatt. Vid Gniben (ca 56°00'N 011°17'E) 18–20 november med farozon och förbud mot fiske nära mål. Vid Jægerspris (EK R 18, ca 55°52'N 011°57'E) till 23 november med tillfälligt förbjudna områden för navigation, ankring och fiske under angivna tider. PAN PAN-varningar aktiva. Mariners ska följa instruktioner på VHF 16/6.</p>
+    <p>Inga nya rapporterade större sjöräddningsincidenter, grundstötningar eller kollisioner i svenska farvatten de senaste 24–36 timmarna. Tidigare insatser (t.ex. man överbord Östersjön 7 nov, Trelleborg 12 nov) är avslutade.</p>
+    <p>Hybridhotbilden kvarstår med fokus på undervattensinfrastruktur. Tidigare kabelincidenter (bl.a. Latvia–Gotland) under utredning. Kustbevakningen har tidigare varnat för ökad trafik och miljörisker från äldre fartyg/skuggflotta. Saildrone-enheter deployeras för maritim domain awareness i Östersjön av Försvarsmakten.</p>
+    <p>Källor: Danska NAVTEX/skjutvarningar (18 nov), Sjöfartsverket, öppna rapporter. Inga primära larm om nya incidenter senaste dygnet.</p>
     <div id="map"></div>
-    <p><small>Kartan visar ungefärliga platser: skjutövningar Kattegatt (Jægerspris), Gotland, GNSS-störningsområden (översiktligt), operativa hamnar. Markeringar illustrativa baserade på öppna rapporter.</small></p>
+    <p><small>Kartan visar ungefärliga platser: skjutövningar Kattegatt (Gniben och Jægerspris), Gotland, operativa hamnar. Markeringar illustrativa baserade på öppna rapporter.</small></p>
   </div>
 </div>
 
@@ -186,10 +185,10 @@
   <div class="section-header" onclick="this.parentElement.classList.toggle('open')">3. Internationell bevakning <span>▼</span></div>
   <div class="section-content">
     <p><strong>Status: Uppmärksamhet (gul)</strong></p>
-    <p>Hybridhotbilden i Östersjöregionen kvarstår med fokus på undervattensinfrastruktur och navigationsstörningar. Kabelincidenter under hösten har delvis bedömts som olyckor (dåligt väder, utrustningsbrister, sjömanskap), men mönstret bevakas av NATO och nationella myndigheter.</p>
-    <p>Tidigare (11–13 nov): Ukrainska drönarattacker mot rysk infrastruktur och missilfartyg (Naro-Fominsk) i Finska viken/Ust-Luga. Finland och Estland bekräftade observationer. Säkerhetsläget bedöms stabilt av berörda länder, men spillover-risk kvarstår. Inga nya incidenter med direkt operativ påverkan för svensk sjöräddning senaste 24–36 h.</p>
-    <p>NATO förstärker närvaro med fartyg, flyg och obemannade system för att skydda kritisk infrastruktur. Sverige deltar i samarbete. Globala spänningar (t.ex. Hormuzsundet) påverkar indirekt energiflöden men har begränsad omedelbar relevans för Östersjön.</p>
-    <p>Källor: Sjöfartsverket, finska/estniska myndigheter via media, NATO-relaterade rapporter (11–18 nov). Källkritik: skadeomfattning och uppsåt delvis obekräftade.</p>
+    <p>EU har beviljat ca 9,55 miljoner euro till finsklett projekt (Merikarhu) för mobil reparationsutrustning för sjökablar i Östersjön. Målet är att kunna utrusta fartyg inom tre dygn när kommersiell hjälp saknas. Partner inkluderar svenska myndigheter. Finansieringsbeslut 16 november.</p>
+    <p>MARSEC EU 26-övning har genomförts för att stärka skydd av kritisk maritim infrastruktur. NATO och nordiska samarbeten förstärker närvaro med fartyg, flyg och obemannade system (inkl. Saildrone Voyager för Sverige).</p>
+    <p>Inga nya större geopolitiska incidenter med direkt operativ påverkan för svensk sjöräddning senaste 24–36 h. Hybridhot och skuggflotta kvarstår som bakgrundsfaktorer.</p>
+    <p>Källor: EU-kommissionen/Säkerhetsvärlden (19 nov), EEAS, maritima rapporter. Källkritik: operativa detaljer delvis begränsade.</p>
   </div>
 </div>
 
@@ -197,54 +196,55 @@
   <div class="section-header" onclick="this.parentElement.classList.toggle('open')">4. Cyber och tekniska sårbarheter <span>▼</span></div>
   <div class="section-content">
     <p><strong>Status: Uppmärksamhet (gul)</strong></p>
-    <p>Pågående GNSS/AIS/radar/DGPS-störningar i Östersjöregionen enligt Baltic Sea Nav Warn 030/26. Dessa påverkar navigationssystem och kräver backup-procedurer (radar, visuell navigation, papperssjökort). Ingen ny specifik cyberincident mot svenska maritima system rapporterad senaste 24–36 timmarna.</p>
-    <p>Allmänna hot kvarstår: Ransomware och dataexfiltration riktad mot maritima företag och terminaler. Rekommendation om patchning, segmentering och GNSS-backup kvarstår. Shadow fleet-fartyg utgör ytterligare risk för både miljö och säkerhet.</p>
-    <p>Källor: Sjöfartsverket NAVTEX, öppna rapporter om GNSS-störningar (gpsinterference.com m.fl.). Inga primära svenska myndighetslarm om nya cyberattacker senaste dygnet.</p>
+    <p>Norska sjöfartsmyndigheten (NMA) har utfärdat varning om ökad cyberrisk efter ransomware och virusincidenter som påverkat maritima företag. Ökad digitalisering ökar sårbarhet för system som påverkar säkerhet ombord.</p>
+    <p>Rapporter visar ca 100 % årlig ökning av hot mot fartygens OT-system (IT/OT-gränssnitt). Supply chain-attacker och AI-drivna hot nämns. The Swedish Club samarbetar med DNV Cyber och CyberOwl för hotintelligence till ca 1000 fartyg.</p>
+    <p>Inga nya specifika cyberincidenter mot svenska maritima system rapporterade senaste 24–36 timmarna. Tidigare GNSS-störningar i Östersjön kvarstår som bakgrund. Rekommendation: säkerställ segmentering, backup-navigation och patchning.</p>
+    <p>Källor: NMA via World Ports (18 nov), maritima cyberrapporter (CYTUR m.fl.). Inga primära svenska larm senaste dygnet.</p>
   </div>
 </div>
 
 <div class="section" id="sec5">
   <div class="section-header" onclick="this.parentElement.classList.toggle('open')">5. Svenska förhållanden (väder från SMHI m.m.) <span>▼</span></div>
   <div class="section-content">
-    <p><strong>Status: OK (grön) – väder</strong></p>
-    <p>18 november: Molnigt till mulet över stora delar av Sverige. Temperaturer cirka 0–3°C i södra och mellersta Sverige (Stockholm ca 1–2°C, Göteborg liknande). Lätt regn eller duggregn möjligt. Vindar måttliga, i Kattegatt uppemot 9–11 m/s under dagen. Sikt generellt god.</p>
-    <p>Inga aktuella gula eller högre varningar för kuling i svenska farvatten rapporterade. Tidigare varningar för ishalka längs Norrlandskusten har löpt ut. Kallare luft norrut.</p>
-    <p>Operativ relevans: Normala förhållanden för utryckning. Ökad uppmärksamhet vid byvind och eventuellt regn. Halkrisk på landbaserade transporter till stationer i norr.</p>
-    <p>Källa: SMHI prognoser (via öppna data och kustväder.se), 17–18 nov.</p>
+    <p><strong>Status: Uppmärksamhet (gul) – vinterväder</strong></p>
+    <p>19 november: Kallare luft drar söderut. Stockholm ca 0°C med möjliga lätta snöbyar/flurries, Göteborg strax under noll med delvis klart, Malmö ca 3°C med moln och friskare vind (byar upp till ca 25 m/s). Högtryck bygger västerifrån mot helgen med minusgrader och mer sol.</p>
+    <p>SMHI har utfärdat gul varning för plötslig ishalka längs kusten i Västerbotten (runt Umeå) och Norrbotten (Luleå m.fl.) under natten/morgonen 19 nov på grund av snö som övergår i regn/underkylt regn. Varningarna löper ut under morgonen. Halkolyckor rapporterade på land i Mellansverige.</p>
+    <p>Operativ relevans: Ökad uppmärksamhet på halka för landtransporter till stationer i norr. Sjöförhållanden måttliga, men kallare vatten och möjlig nederbörd kan påverka. Normala förhållanden för utryckning annars.</p>
+    <p>Källa: SMHI (via nyhetsrapporter och prognoser 18–19 nov), väderdata för Stockholm/Göteborg/Malmö.</p>
   </div>
 </div>
 
 <div class="section" id="sec6">
   <div class="section-header" onclick="this.parentElement.classList.toggle('open')">6. Försörjning och materiel – börsvärden och bränslepriser <span>▼</span></div>
   <div class="section-content">
-    <p><strong>Status: Uppmärksamhet (gul) – bränsle</strong></p>
-    <p>Diesel listpris (Preem/OKQ8/St1 m.fl., senast publicerat 16 nov): 22,14 kr/l. Crowdsourcade pumppriser senaste 24 h kring rikssnitt 21,27–21,30 kr/l. Priset har stigit senaste veckan p.g.a. europeisk dieselbrist. Relevant för driftkostnader på räddningsbåtar.</p>
+    <p><strong>Status: OK (grön) – bränsle nedåt</strong></p>
+    <p>Diesel företagslistpris sänktes 18 november med ytterligare 35 öre till 21,34 kr/l hos Circle K, OKQ8 och Preem (inkl. moms). St1 kvar på 21,69 kr/l. Crowdsourcade pumppriser senaste 24 h kring rikssnitt ca 21,27–21,30 kr/l. Nedgång de senaste dagarna, relevant för driftkostnader.</p>
     <div class="chart-container">
       <canvas id="fuelChart"></canvas>
     </div>
-    <p>Stockholmsbörsen (OMXS30): Stängning 17 nov cirka 3 287,48 (−1,63 %). Nedgång driven av bredare marknadsfaktorer. Ingen omedelbar operativ påverkan på materielanskaffning.</p>
-    <p>Källor: Preem listpris, bensinpriskollen.se, börsdata (17 nov). Ekonomiska faktorer placerade längre ner enligt struktur.</p>
+    <p>Stockholmsbörsen (OMXS30): Stängning 18 november 3 256,21 (−0,95 %). Nedgång driven av bredare marknadsfaktorer (bl.a. råvaror). Ingen omedelbar operativ påverkan på materielanskaffning.</p>
+    <p>Källor: RoadNews/kedjornas listpriser (18 nov), bensinpriskollen.se, börsdata Yahoo Finance (slutkurser 18 nov). Ekonomiska faktorer placerade längre ner enligt struktur.</p>
   </div>
 </div>
 
 <div class="section" id="sec7">
   <div class="section-header" onclick="this.parentElement.classList.toggle('open')">7. Kort slutsats + rekommenderade åtgärder <span>▼</span></div>
   <div class="section-content">
-    <p><strong>Slutsats:</strong> Stabilt operativt läge för Sjöräddningssällskapet. Huvudsakliga faktorer är pågående GNSS-störningar och militära övningar i närområdet. Inga akuta räddningsinsatser. Väder normalt för årstiden. Bränslekostnader fortsatt höga men stabila.</p>
+    <p><strong>Slutsats:</strong> Stabilt operativt läge för Sjöräddningssällskapet. Huvudsakliga faktorer är vinterväder med ishalka i norr och pågående militära övningar i Kattegatt. Inga akuta räddningsinsatser. Cyberhot och hybridbild bevakas men inga nya larm. Dieselpriset har sjunkit.</p>
     <p><strong>Rekommenderade åtgärder:</strong></p>
     <ul>
-      <li>Fortsätt normal beredskap. Bevaka SMHI och NAVTEX för uppdaterade varningar, särskilt GNSS-störningar.</li>
-      <li>Säkerställ GNSS-backup och procedurer för störningar på stationer och båtar. Använd radar och visuella metoder vid behov.</li>
+      <li>Fortsätt normal beredskap. Bevaka SMHI för vädervarningar, särskilt ishalka och snö i norr/kusten.</li>
+      <li>Notera danska skjutövningar i Kattegatt – följ NAVTEX och VHF för restriktioner.</li>
+      <li>Säkerställ GNSS-backup och procedurer för eventuella störningar. Använd radar och visuella metoder vid behov.</li>
       <li>Öka uppmärksamhet på undervattensinfrastruktur och rapportera anomalier via vanliga kanaler (JRCC/KBV).</li>
-      <li>Planera för höga dieselkostnader i driftbudget. Överväg bulkinköp om möjligt.</li>
-      <li>Bevaka militära övningar i Kattegatt och södra Östersjön för eventuella restriktioner.</li>
+      <li>Utnyttja lägre dieselpriser för planering av driftbudget. Bevaka vidare prisutveckling.</li>
     </ul>
     <p>Ingen särskild eskalering krävs idag. Briefen baseras på öppna källor med källkritik, fokus på de senaste 24–36 timmarna.</p>
   </div>
 </div>
 
 <footer>
-  Sjöräddningssällskapet · Omvärldsbevakning · 2026-11-18 · Baserad på öppna primärkällor med källkritik
+  Sjöräddningssällskapet · Omvärldsbevakning · 2026-11-19 · Baserad på öppna primärkällor med källkritik
 </footer>
 
 <script>
@@ -267,13 +267,15 @@
     maxZoom: 20
   }).addTo(window.map);
 
+  L.marker([56.00, 11.28]).addTo(window.map).bindPopup('Kattegatt – Gniben: danska skjutövningar (18–20 nov)');
   L.marker([55.87, 11.95]).addTo(window.map).bindPopup('Kattegatt – Jægerspris: danska skjutövningar (till 23 nov)');
-  L.marker([57.5, 18.5]).addTo(window.map).bindPopup('Gotland – tidigare kabelincidenter');
+  L.marker([57.5, 18.5]).addTo(window.map).bindPopup('Gotland – tidigare kabelincidenter / övervakning');
   L.marker([57.7, 11.9]).addTo(window.map).bindPopup('Göteborg / Kattegatt');
   L.marker([55.6, 13.0]).addTo(window.map).bindPopup('Malmö / Öresund');
   L.marker([59.3, 18.1]).addTo(window.map).bindPopup('Stockholm / Östersjön');
-  L.marker([59.8, 23.0]).addTo(window.map).bindPopup('Finska viken – tidigare drönaraktivitet');
-  L.circle([56.5, 17.0], { radius: 200000, color: '#eab308', fillColor: '#eab308', fillOpacity: 0.08 }).addTo(window.map).bindPopup('Översiktligt område med GNSS-störningar (Baltic Sea Nav Warn)');
+  L.marker([63.8, 20.3]).addTo(window.map).bindPopup('Umeå – ishalka-varning');
+  L.marker([65.6, 22.1]).addTo(window.map).bindPopup('Luleå – ishalka-varning');
+  L.circle([56.5, 17.0], { radius: 200000, color: '#eab308', fillColor: '#eab308', fillOpacity: 0.08 }).addTo(window.map).bindPopup('Översiktligt område med historiska GNSS-störningar');
 
   setTimeout(function(){ if(window.map) window.map.invalidateSize(); }, 200);
 
@@ -281,10 +283,10 @@
   new Chart(ctx, {
     type: 'line',
     data: {
-      labels: ['12 nov', '13 nov', '14 nov', '15 nov', '16 nov', '17–18 nov'],
+      labels: ['16 nov', '17 nov', '18 nov'],
       datasets: [{
-        label: 'Dieselpris (kr/l, listpris)',
-        data: [21.59, 21.59, 21.59, 21.59, 22.14, 22.14],
+        label: 'Dieselpris (kr/l, listpris Circle K/Preem/OKQ8)',
+        data: [22.14, 21.69, 21.34],
         borderColor: '#C8102E',
         backgroundColor: 'rgba(200, 16, 46, 0.15)',
         tension: 0.3,
